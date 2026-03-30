@@ -1,18 +1,24 @@
 # Replication Package: Comment-Aware LLM Bug Detection and Test Oracle Generation
 
+
+
+<p align="center">
+  <img src="figures/empirical_study_overview.png" width="900">
+</p>
+
+<p align="center">
+  <em>Figure: Experimental design for bug detection and assertion generation across documentation conditions.</em>
+</p>
+
 This repository contains the complete replication package for the paper:
 
 **On the Role of Code Comments in Test Oracle Generation: Empirical Analysis and Human-in-the-Loop Augmentation**
-
+01
 It provides datasets, scripts, and system components to reproduce experiments on:
 
 - LLM-based bug detection  
 - LLM-based test oracle (assertion) generation  
 - Comment Strengthener framework  
-
----
-
-# Overview
 
 Large language models rely on source code and comments to infer program behavior. However, comments are often incomplete or misaligned with implementation, which affects reasoning quality.
 
@@ -24,18 +30,6 @@ This repository evaluates four documentation conditions:
 - **M4**: Code + strengthened comment  
 
 The strengthened comments are generated using a human-in-the-loop pipeline grounded in program analysis.
-
----
-
-## Experimental Workflow
-
-<p align="center">
-  <img src="figures/empirical_study_overview.png" width="900">
-</p>
-
-<p align="center">
-  <em>Figure: Experimental design for bug detection and assertion generation across documentation conditions.</em>
-</p>
 
 ---
 
@@ -168,8 +162,7 @@ All conditions use identical prompts and model settings. Only documentation vari
 - JSON output format  
 
 **Model**
-- DeepSeek Coder  
-- Greedy decoding  
+- DeepSeek Coder    
 
 **Output**
 - Binary prediction  
@@ -244,7 +237,7 @@ An assertion is **EFFECTIVE** if:
 
 ```bash
 python orchestrator/run_strengthen.py \
-  --input dataset.json \
+  --input strengthened_comments_full.json \
   --output results.json \
   --mode contract
 ```
@@ -302,19 +295,3 @@ python evaluate_assertion_effectiveness.py \
 - Documentation is transformed into structured contracts  
 
 These principles ensure alignment between implementation and documentation and improve LLM reasoning.
-
----
-
-# Limitations
-
-- Dataset limited to Java  
-- Requires execution environment for full evaluation  
-- Results may vary across LLM providers  
-
----
-
-# Citation
-
-If you use this repository, cite:
-
-**On the Role of Code Comments in Test Oracle Generation: Empirical Analysis and Human-in-the-Loop Augmentation**
