@@ -511,7 +511,7 @@ Generate the assertion statements now:"""
     def call_deepseek_api(self, prompt: str, api_key: Optional[str] = None) -> Dict:
         """Call DeepSeek-Coder API for oracle generation"""
         if not api_key:
-            api_key = "sk-e17da7ffe75e432c824c3ac3c98ad3bb"  # Your DeepSeek API key
+            api_key = "Replace Real API Key"  # Your DeepSeek API key
         
         headers = {
             "Authorization": f"Bearer {api_key}",
